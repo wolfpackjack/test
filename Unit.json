@@ -1,0 +1,31 @@
+{
+    "units": {
+        "Hero IceMage": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "health": {
+                    "maxHealth": 100
+                },
+                "mana": {
+                    "maxMana": 100
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 30
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Hero IceMage Weapon"
+                ],
+                "abilityList": [
+                    "Ice Spike"
+                ]
+            }
+        },
+        "Hero IceMage Weapon Missile": {
+            "baseUnit": "_CMissile"
+        }
+    }
+}

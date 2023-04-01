@@ -1,0 +1,127 @@
+{
+    "actors": {
+        "Hero IceMage": {
+            "prefix": "",
+            "parent": "_StandardUnit DecayOnDeath",
+            "unitActor": {
+                "resource": {
+                    "type": "GpuAnimation",
+                    "name": "elvenmage"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "actorCreate": {}
+                        },
+                        "actions": [
+                            {
+                                "playAnimation": {}
+                            }
+                        ]
+                    }
+                ],
+                "eventMacros": [
+                    "Events StandardUnit Selectable"
+                ],
+                "hostSites": {
+                    "SiteWeapon": {
+                        "offset": {
+                            "forward": 0.5,
+                            "up": 0.5
+                        }
+                    }
+                },
+                "walkAnimationSpeed": 1.75
+            }
+        },
+        "Hero IceMage Weapon Attack FX": {
+            "parent": "_FX Attack SingleTarget",
+            "actionActor": {
+                "effect": "Hero IceMage Weapon Launch",
+                "launchModel": "Hero IceMage Weapon Launch SFX",
+                "impactModel": "Hero IceMage Weapon Impact FX"
+            }
+        },
+        "Hero IceMage Weapon Impact FX": {
+            "parent": "_FX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_icemage_frostbolt_impact"
+                }
+            }
+        },
+        "Hero IceMage Weapon Launch SFX": {
+            "parent": "_SFX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "Sound",
+                    "name": "ice_mage_missile_launch"
+                }
+            }
+        },
+        "Hero IceMage Weapon Missile": {
+            "prefix": "",
+            "unitActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_icemage_weapon_missile"
+                }
+            }
+        },
+        "Ice Spike Action": {
+            "actionActor": {
+                "effect": "Ice Spike Search",
+                "impactModel": "Ice Spike Impact VFX"
+            }
+        },
+        "Ice Spike Impact VFX": {
+            "parent": "_FX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_spell_icerupture_chill_aura"
+                }
+            }
+        },
+        "Ice Spike Persistent VFX": {
+            "parent": "_FX OneShot SelfRemoving",
+            "modelActor": {
+                "resource": {
+                    "type": "ParticleAnimation",
+                    "name": "vfx_generic_region_aura_ice"
+                },
+                "events": [
+                    {
+                        "actorTerm": {
+                            "persistentEffectOn": {
+                                "effect": "Ice Spike Delay"
+                            }
+                        },
+                        "actions": [
+                            {
+                                "create": {}
+                            }
+                        ]
+                    },
+                    {
+                        "actorTerm": {
+                            "persistentEffectOff": {}
+                        },
+                        "actions": [
+                            {
+                                "create": {
+                                    "actor": "Ice Spike Impact VFX"
+                                }
+                            },
+                            {
+                                "destroy": {}
+                            }
+                        ]
+                    }
+                ],
+                "modelScale": 1
+            }
+        }
+    }
+}

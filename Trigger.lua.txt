@@ -1,0 +1,62 @@
+-- VARIABLES
+local score = 0
+local hero_unit_name = DCEI.Unit("Hero IceMage")
+local enemy_unit_name = DCEI.Unit("Standard MeleeUnit")
+local enemy_points = {
+    {20, 14},
+    {21, 16},
+    {20, 18}
+}
+
+-- TRIGGERS
+local function UpdateScore()
+        DCEI.ShowObjectiveText("Score: " .. score)
+    end
+    
+local function SpawnEnemyUnitAtPoint(point)
+        DCEI.CreateUnit(-1, -1, enemy_unit_name, point[1], point[2])
+    end
+    
+local function OnMapStart()
+    UpdateScore()
+
+    DCEI.CreateUnit(1, 1, hero_unit_name, 16, 16)
+
+    for key, value in ipairs(enemy_points) do
+        SpawnEnemyUnitAtPoint(value)
+    end
+end
+
+function OnUnitDied()
+    local u = DCEI.TriggeringUnit
+    local name = DCEI.GetUnitType(u)
+    local p = DCEI.GetUnitPosition2D(u)
+    local point = {p.x, p.y}
+
+    if name == enemy_unit_name then
+        DCEI.LogMessage("> an enemy unit died!")
+        score = score + 1
+        UpdateScore()
+
+        DCEI.TriggerAddTimerEventElapsed(
+            function ()
+                SpawnEnemyUnitAtPoint(point)
+            end,
+            2
+        )        
+    end
+end
+
+function OnKeyDown()
+    local hero = DCEI.FindUnit(hero_unit_name)
+    local mouse_position = DCEI.GetMouseWorldPosition2D()
+
+    DCEI.CastAbilityAtPosition("Ice Spike", hero, mouse_position.x,
+mouse_position.y)
+end
+
+DCEI.TriggerAddMappedKeyDownEvent("Special", OnKeyDown)
+
+-- INITIALIZATION
+OnMapStart()
+DCEI.TriggerAddUnitDiedEvent(DCEI.UnitAny, OnUnitDied) 
