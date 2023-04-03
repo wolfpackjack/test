@@ -7,5 +7,10 @@
                 "version": "^1.0.0"
             }
         ]
+    },
+    "musicSettings": {
+        "musicNames": [
+            "PQ_Battle1_Intense_v2_Master"
+        ]
     }
 }

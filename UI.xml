@@ -1,1 +1,8 @@
-<UI xmlns:bind="https://platform.wildsky.dev/xml/ui/bind" />
+<UI xmlns:bind="https://platform.wildsky.dev/xml/ui/bind">
+    <HStack name="level up">
+        <Frame>
+            <Text id="text" text="level Up" color="r: 1, g: 0.5, b: 1" />
+        </Frame>
+        <Button id="button" width="140" height="94" />
+    </HStack>
+</UI>

@@ -1,7 +1,7 @@
 {
     "abilities": {
-        "Ice Spike": {
-            "effect": "Ice Spike Delay",
+        "bomb": {
+            "effect": "bomb launch",
             "stats": {
                 "range": 99
             }

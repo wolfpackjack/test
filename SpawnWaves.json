@@ -1,1 +1,7 @@
-{}
+{
+    "weatherSettings": {
+        "hasRain": true,
+        "time": 0,
+        "weather": 1
+    }
+}

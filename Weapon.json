@@ -1,8 +1,20 @@
 {
     "weapons": {
-        "Hero IceMage Weapon": {
+        "Hero Weapon": {
             "parent": "_StandardRangedWeapon",
-            "effectName": "Hero IceMage Weapon Launch"
+            "effectName": "Hero Weapon Launch"
+        },
+        "Tower Weapon": {
+            "parent": "_StandardRangedWeapon",
+            "effectName": "Tower Weapon Launch",
+            "stats": {
+                "range": 10,
+                "scanRange": 10,
+                "arc": 360
+            }
+        },
+        "enemy weapon": {
+            "parent": "_StandardMeleeWeapon"
         }
     }
 }

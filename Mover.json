@@ -1,14 +1,26 @@
 {
     "movers": {
-        "Hero IceMage Weapon Missile": {
+        "Hero IceMage Weapon Missile 2": {
             "ballistic": {
                 "flightTime": 0.5,
                 "gravity": 12
             }
         },
-        "Hero IceMage Weapon Missile 2": {
+        "Hero Weapon Missile": {
             "ballistic": {
                 "flightTime": 0.5,
+                "gravity": 12
+            }
+        },
+        "Tower Weapon Missile": {
+            "ballistic": {
+                "flightTime": 1,
+                "gravity": 12
+            }
+        },
+        "bomb mover": {
+            "ballistic": {
+                "flightTime": 1,
                 "gravity": 12
             }
         }

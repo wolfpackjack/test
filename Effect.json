@@ -1,40 +1,59 @@
 {
     "effects": {
-        "Hero IceMage Weapon Damage": {
+        "Hero Weapon Damage": {
             "damage": {
                 "damageAmount": 5
             }
         },
-        "Hero IceMage Weapon Launch": {
+        "Hero Weapon Launch": {
             "launchMissile": {
-                "missileUnit": "Hero IceMage Weapon Missile",
-                "effect": "Hero IceMage Weapon Damage",
-                "mover": "Hero IceMage Weapon Missile"
+                "missileUnit": "Hero Weapon Missile",
+                "effect": "Hero Weapon Damage",
+                "mover": "Hero Weapon Missile"
             }
         },
-        "Ice Spike Damage": {
+        "Tower Weapon Damage": {
             "damage": {
-                "damageAmount": 1
+                "damageAmount": 5
             }
         },
-        "Ice Spike Delay": {
+        "Tower Weapon Launch": {
+            "launchMissile": {
+                "missileUnit": "Tower Weapon missle",
+                "effect": "Tower Weapon Damage",
+                "mover": "Tower Weapon Missile"
+            }
+        },
+        "bomb Damage": {
+            "damage": {
+                "damageAmount": 10
+            }
+        },
+        "bomb Delay": {
             "persistent": {
                 "periodicCount": 1,
-                "finalEffect": "Ice Spike Search",
+                "startEffect": "bomb Search",
                 "periodicDurations": [
                     1.5
                 ]
             }
         },
-        "Ice Spike Search": {
+        "bomb Search": {
             "areaSearch": {
                 "debugDraw": true,
                 "areaSearchType": {
                     "circle": {
-                        "radius": 1
+                        "radius": 2
                     }
                 },
-                "effect": "Ice Spike Damage"
+                "effect": "bomb Damage"
+            }
+        },
+        "bomb launch": {
+            "launchMissile": {
+                "missileUnit": "bomb",
+                "effect": "bomb Delay",
+                "mover": "bomb mover"
             }
         }
     }

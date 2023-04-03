@@ -1,6 +1,6 @@
 {
     "units": {
-        "Hero IceMage": {
+        "Hero": {
             "baseUnit": "_CUnit",
             "components": {
                 "health": {
@@ -17,15 +17,68 @@
             },
             "references": {
                 "weaponList": [
-                    "Hero IceMage Weapon"
+                    "Hero Weapon"
                 ],
                 "abilityList": [
-                    "Ice Spike"
+                    "bomb"
                 ]
             }
         },
-        "Hero IceMage Weapon Missile": {
+        "Hero Weapon Missile": {
             "baseUnit": "_CMissile"
+        },
+        "Tower Weapon missle": {
+            "baseUnit": "_CMissile"
+        },
+        "bomb": {
+            "baseUnit": "_CMissile"
+        },
+        "enemy": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "health": {
+                    "maxHealth": 50
+                },
+                "mana": {
+                    "maxMana": 100
+                },
+                "behavior": {
+                    "genericControllableUnit": {}
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "enemy weapon"
+                ]
+            }
+        },
+        "tower": {
+            "baseUnit": "_CUnit",
+            "components": {
+                "unitStats": {
+                    "selectable": false
+                },
+                "health": {
+                    "maxHealth": 100
+                },
+                "movement": {
+                    "moveSpeed": 0
+                },
+                "turning": {
+                    "turningSpeed": 0
+                },
+                "behavior": {
+                    "genericControllableUnit": {
+                        "leashRadius": 30,
+                        "leashResetRadius": 30
+                    }
+                }
+            },
+            "references": {
+                "weaponList": [
+                    "Tower Weapon"
+                ]
+            }
         }
     }
 }
